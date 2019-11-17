@@ -59,8 +59,18 @@ class ViewController: UIViewController, WKNavigationDelegate {
             print("URL not valid")
             return
         }
-        
+        print(url.host ?? "nil")
         webView.load(URLRequest(url: url))
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        guard let url = URL(string: urlString) else {return}
+        if let host = url.host {
+            if urlString.contains(host) {
+                decisionHandler(.allow)
+                return
+            }
+        }
     }
     
     @objc func choseWeb() {
@@ -79,10 +89,12 @@ class ViewController: UIViewController, WKNavigationDelegate {
         urlString = "https://" + (sender.title ?? "google.com")
         print(urlString)
         loadUrl()
+        
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         title = webView.title
+        
     }
 
 }
