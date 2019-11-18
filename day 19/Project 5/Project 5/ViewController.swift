@@ -34,7 +34,42 @@ class ViewController: UITableViewController {
     }
     
     func submit(answer: String) {
-        print(answer)
+        let lowerAnswer = answer.lowercased()
+        
+        if isPossible(lowerAnswer) {
+            if isOriginal(lowerAnswer) {
+                if isReal(lowerAnswer) {
+                    usedWords.insert(answer, at: 0)
+                    let indexPath = IndexPath(row: 0, section: 0)
+                    tableView.insertRows(at: [indexPath], with: .fade)
+                }
+            }
+        }
+    }
+    
+    func isPossible(_ text: String) -> Bool {
+        guard var tempWord = title?.lowercased() else {return false}
+        
+        for letter in text {
+            if let position = tempWord.firstIndex(of: letter) {
+                tempWord.remove(at: position)
+            } else {
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    func isOriginal(_ text: String) -> Bool {
+        return !usedWords.contains(text)
+    }
+    
+    func isReal(_ text: String) -> Bool {
+        let checker = UITextChecker()
+        let range = NSRange(location: 0, length: text.utf8.count)
+        let misspelledRange = checker.rangeOfMisspelledWord(in: text, range: range, startingAt: 0, wrap: false, language: "en-US")
+        return misspelledRange.location == NSNotFound
     }
     
     func startGame() {
