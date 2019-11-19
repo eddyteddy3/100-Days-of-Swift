@@ -1,21 +1,22 @@
 //
-//  ViewController.swift
+//  TableViewController.swift
 //  Project 7
 //
-//  Created by Moazzam Tahir on 19/11/2019.
+//  Created by Moazzam Tahir on 20/11/2019.
 //  Copyright © 2019 Moazzam Tahir. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UITableViewController {
-
+class TableViewController: UITableViewController {
+    
+    
     var petitions = [Petition]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let urlString = "https://www.hackingwithswift.com/samples/petitions-1.json"
+        let urlString = "https://www.hackingwithswift.com/samples/petitions-2.json"
         
         guard let url = URL(string: urlString) else {return}
         if let data = try? Data(contentsOf: url) {
@@ -50,7 +51,6 @@ class ViewController: UITableViewController {
         vc.detailedItem = petitions[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
-
-
+    
+    
 }
-
