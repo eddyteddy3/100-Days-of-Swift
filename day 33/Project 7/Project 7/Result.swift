@@ -1,5 +1,5 @@
 //
-//  Petitions.swift
+//  Result.swift
 //  Project 7
 //
 //  Created by Moazzam Tahir on 19/11/2019.
@@ -8,8 +8,6 @@
 
 import Foundation
 
-struct Petition: Codable {
-    var title: String
-    var body: String
-    var signatureCount: Int
+struct Result: Codable {
+    var results: [Petition]
 }

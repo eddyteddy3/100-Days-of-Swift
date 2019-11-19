@@ -14,6 +14,7 @@
 		037243432384422E00274BCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 037243422384422E00274BCE /* Assets.xcassets */; };
 		037243462384422E00274BCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 037243442384422E00274BCE /* LaunchScreen.storyboard */; };
 		03B55479238464E50091566F /* Petitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B55478238464E50091566F /* Petitions.swift */; };
+		03B5547B2384672E0091566F /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B5547A2384672E0091566F /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		037243452384422E00274BCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		037243472384422E00274BCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03B55478238464E50091566F /* Petitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Petitions.swift; sourceTree = "<group>"; };
+		03B5547A2384672E0091566F /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				037243392384422C00274BCE /* AppDelegate.swift */,
 				0372433B2384422C00274BCE /* SceneDelegate.swift */,
 				0372433D2384422C00274BCE /* ViewController.swift */,
+				03B5547A2384672E0091566F /* Result.swift */,
 				03B55478238464E50091566F /* Petitions.swift */,
 				0372433F2384422C00274BCE /* Main.storyboard */,
 				037243422384422E00274BCE /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0372433E2384422C00274BCE /* ViewController.swift in Sources */,
+				03B5547B2384672E0091566F /* Result.swift in Sources */,
 				03B55479238464E50091566F /* Petitions.swift in Sources */,
 				0372433A2384422C00274BCE /* AppDelegate.swift in Sources */,
 				0372433C2384422C00274BCE /* SceneDelegate.swift in Sources */,

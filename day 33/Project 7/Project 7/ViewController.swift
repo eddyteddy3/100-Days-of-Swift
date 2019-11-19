@@ -10,11 +10,27 @@ import UIKit
 
 class ViewController: UITableViewController {
 
-    var petitions = [String]()
+    var petitions = [Petition]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let urlString = "https://www.hackingwithswift.com/samples/petitions-1.json"
+        
+        guard let url = URL(string: urlString) else {return}
+        if let data = try? Data(contentsOf: url) {
+            print("DATA: \(data)")
+            parseData(json: data)
+        }
+    }
+    
+    func parseData(json: Data) {
+        let decoder = JSONDecoder()
+        
+        if let jsonDecoder = try? decoder.decode(Result.self, from: json) {
+            petitions = jsonDecoder.results
+            tableView.reloadData()
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -23,10 +39,13 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "This is title"
-        cell.detailTextLabel?.text = "This is detailed text"
+        let petition = petitions[indexPath.row]
+        cell.textLabel?.text = petition.title
+        cell.detailTextLabel?.text = petition.body
         return cell
     }
+    
+    
 
 
 }
